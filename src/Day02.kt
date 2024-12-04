@@ -1,17 +1,17 @@
 import kotlin.math.abs
 
 object Day02 : Day() {
-    override fun p1(input: List<String>): Int =
+    override fun p1(input: List<String>): String =
         input.count { line ->
             val numbers = line.split(" +".toRegex()).map(String::toInt)
             isSafe(numbers)
-        }
+        }.toString()
 
-    override fun p2(input: List<String>): Int =
+    override fun p2(input: List<String>): String =
         input.count { line ->
             val numbers = line.split(" +".toRegex()).map(String::toInt)
             numbers.indices.map { index -> numbers.take(index) + numbers.drop(index + 1) }.any { isSafe(it) }
-        }
+        }.toString()
 
     private fun isSafe(numbers: List<Int>) =
         (numbers == numbers.sorted() || numbers == numbers.sortedDescending()) &&

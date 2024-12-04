@@ -1,14 +1,14 @@
 object Day03 : Day() {
-    override fun p1(input: List<String>): Int {
+    override fun p1(input: List<String>): String {
         val line = input.joinToString("\n")
         val found = """mul\((\d{1,3}),(\d{1,3})\)""".toRegex().findAll(line)
         return found.sumOf {
             val (left, right) = it.destructured
             left.toInt() * right.toInt()
-        }
+        }.toString()
     }
 
-    override fun p2(input: List<String>): Int {
+    override fun p2(input: List<String>): String {
         val line = input.joinToString("\n")
         val found = """do\(\)|don't\(\)|mul\((\d{1,3}),(\d{1,3})\)""".toRegex().findAll(line)
         return found.fold(Pair(0, true)) { (total, active), match ->
@@ -32,7 +32,7 @@ object Day03 : Day() {
                     )
                 }
             }
-        }.first
+        }.first.toString()
     }
 }
 

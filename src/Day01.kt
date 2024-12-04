@@ -1,14 +1,14 @@
 import kotlin.math.abs
 
 object Day01: Day() {
-    override fun p1(input: List<String>): Int {
+    override fun p1(input: List<String>): String {
         val (first, last) = extractLists(input)
-        return first.zip(last).sumOf { abs(it.first - it.second) }
+        return first.zip(last).sumOf { abs(it.first - it.second) }.toString()
     }
 
-    override fun p2(input: List<String>): Int {
+    override fun p2(input: List<String>): String {
         val (first, last) = extractLists(input)
-        return first.sumOf { f -> f * last.count { it == f } }
+        return first.sumOf { f -> f * last.count { it == f } }.toString()
     }
 
     private fun extractLists(input: List<String>): Pair<List<Int>, List<Int>> {

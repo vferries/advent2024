@@ -1,8 +1,8 @@
 import kotlin.time.measureTime
 
 abstract class Day {
-    fun part1(input: List<String>): Int {
-        var result: Int
+    fun part1(input: List<String>): String {
+        var result: String
         val time = measureTime {
             result = p1(input)
         }
@@ -10,8 +10,8 @@ abstract class Day {
         return result
     }
 
-    fun part2(input: List<String>): Int {
-        var result: Int
+    fun part2(input: List<String>): String {
+        var result: String
         val time = measureTime {
             result = p2(input)
         }
@@ -19,6 +19,6 @@ abstract class Day {
         return result
     }
 
-    abstract fun p1(input: List<String>): Int
-    abstract fun p2(input: List<String>): Int
+    abstract fun p1(input: List<String>): String
+    abstract fun p2(input: List<String>): String
 }
