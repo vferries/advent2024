@@ -57,13 +57,12 @@ data class GridPos(val row: Int, val col: Int) {
         WEST -> GridPos(row, col - 1)
     }
 
-    companion object {
-        fun allPositions(map: List<String>): List<GridPos> = map.flatMapIndexed { row, line ->
-            line.indices.map { col ->
-                GridPos(row, col)
-            }
-        }
-    }
+    fun neighbors(): List<GridPos> = listOf(
+        GridPos(row - 1, col),
+        GridPos(row + 1, col),
+        GridPos(row, col - 1),
+        GridPos(row, col + 1)
+    )
 }
 
 enum class Orientation {

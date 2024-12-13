@@ -47,13 +47,6 @@ object Day10 : Day() {
 
 }
 
-private fun GridPos.neighbors(): List<GridPos> = listOf(
-    GridPos(row - 1, col),
-    GridPos(row + 1, col),
-    GridPos(row, col - 1),
-    GridPos(row, col + 1)
-)
-
 fun main() {
     val input = readInput("Day10")
     Day10.part1(input).println()
