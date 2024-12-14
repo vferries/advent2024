@@ -1,3 +1,5 @@
+import model.GridPos
+
 object Day10 : Day() {
     override fun p1(input: List<String>): String {
         var total = 0

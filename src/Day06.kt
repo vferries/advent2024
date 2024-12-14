@@ -1,4 +1,6 @@
-import Orientation.*
+import model.GridPos
+import model.Orientation
+import model.Orientation.*
 
 object Day06 : Day() {
     override fun p1(input: List<String>): String = visitAllPositions(input).size.toString()
@@ -46,35 +48,6 @@ object Day06 : Day() {
 
         return count.toString()
     }
-}
-
-data class GridPos(val row: Int, val col: Int) {
-    fun inside(map: List<String>): Boolean = this.row in map.indices && this.col in map[0].indices
-    fun forward(orientation: Orientation): GridPos = when (orientation) {
-        NORTH -> GridPos(row - 1, col)
-        EAST -> GridPos(row, col + 1)
-        SOUTH -> GridPos(row + 1, col)
-        WEST -> GridPos(row, col - 1)
-    }
-
-    fun neighbors(): List<GridPos> = listOf(
-        GridPos(row - 1, col),
-        GridPos(row + 1, col),
-        GridPos(row, col - 1),
-        GridPos(row, col + 1)
-    )
-}
-
-enum class Orientation {
-    NORTH, EAST, SOUTH, WEST;
-
-    fun right(): Orientation =
-        when (this) {
-            NORTH -> EAST
-            EAST -> SOUTH
-            SOUTH -> WEST
-            WEST -> NORTH
-        }
 }
 
 data class GuardPos(val position: GridPos, val orientation: Orientation) {

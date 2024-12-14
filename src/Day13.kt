@@ -1,3 +1,4 @@
+import model.Pos
 import java.math.BigInteger
 import java.math.BigInteger.ZERO
 import kotlin.math.min
@@ -64,10 +65,6 @@ class Machine(text: String) {
         val (px, py) = "Prize: X=(\\d+), Y=(\\d+)".toRegex().find(lines[2])!!.destructured.toList().map { it.toInt() }
         prize = Pos(px, py)
     }
-}
-
-data class Pos(val x: Int, val y: Int) {
-    operator fun times(i: Int): Pos = Pos(x * i, y * i)
 }
 
 fun main() {

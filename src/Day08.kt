@@ -1,3 +1,5 @@
+import model.GridPos
+
 object Day08 : Day() {
     override fun p1(input: List<String>): String {
         val antennas = parseAntennas(input)

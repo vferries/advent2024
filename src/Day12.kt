@@ -1,4 +1,6 @@
-import Orientation.*
+import model.GridPos
+import model.Orientation
+import model.Orientation.*
 
 object Day12 : Day() {
     override fun p1(input: List<String>): String =
@@ -85,11 +87,7 @@ object Day12 : Day() {
     }
 }
 
-private operator fun GridPos.plus(pos: GridPos): GridPos = GridPos(row + pos.row, col + pos.col)
-
-private
-
-fun GridPos.neighborsWithOrientation(): List<Pair<GridPos, Orientation>> = listOf(
+private fun GridPos.neighborsWithOrientation(): List<Pair<GridPos, Orientation>> = listOf(
     GridPos(row - 1, col) to NORTH,
     GridPos(row + 1, col) to SOUTH,
     GridPos(row, col - 1) to WEST,
