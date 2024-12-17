@@ -10,4 +10,12 @@ enum class Orientation {
             SOUTH -> WEST
             WEST -> NORTH
         }
+
+    fun left(): Orientation =
+        when (this) {
+            NORTH -> WEST
+            EAST -> NORTH
+            SOUTH -> EAST
+            WEST -> SOUTH
+        }
 }
