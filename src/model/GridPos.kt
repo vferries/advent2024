@@ -1,5 +1,7 @@
 package model
 
+import kotlin.math.abs
+
 data class GridPos(val row: Int, val col: Int) {
     fun inside(map: List<String>): Boolean = this.row in map.indices && this.col in map[0].indices
     fun forward(orientation: Orientation): GridPos = when (orientation) {
@@ -17,4 +19,6 @@ data class GridPos(val row: Int, val col: Int) {
     )
 
     operator fun plus(pos: GridPos): GridPos = GridPos(row + pos.row, col + pos.col)
+    operator fun minus(pos: GridPos): GridPos = GridPos(row - pos.row, col - pos.col)
+    fun manhattan(other: GridPos): Int = abs(row - other.row) + abs(col - other.col)
 }
